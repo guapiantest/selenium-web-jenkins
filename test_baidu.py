@@ -4,8 +4,9 @@ import time
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+import allure
 
-
+@allure.feature('Test Baidu WebUI')
 class TestBaidu:
     def get_config(self):
         config = configparser.ConfigParser()
@@ -37,6 +38,7 @@ class TestBaidu:
         print('关闭浏览器')
 
     @pytest.mark.parametrize('keywords', ['今日头条', '王者荣耀'])
+    @allure.story('百度搜索')
     def test_case(self, keywords):
         self.driver.find_element_by_id('kw').send_keys(keywords)
         self.driver.find_element_by_id('su').click()
