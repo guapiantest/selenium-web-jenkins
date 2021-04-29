@@ -26,8 +26,8 @@ class TestBaidu:
         if using_headless is not None and using_headless.lower() == 'true':
             print('使用无界面方式运行')
             options.add_argument('--headless')
-        self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'), chrome_options=options)
-        # self.driver = webdriver.Remote("http://192.168.1.86:5001/wd/hub", desired_capabilities={"browserName": 'chrome'})
+        # self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'), chrome_options=options)
+        self.driver = webdriver.Remote("http://192.168.1.86:5001/wd/hub", desired_capabilities={"browserName": 'chrome'})
 
         self.driver.get('http://www.baidu.com')
         print('打开浏览器，访问百度首页')
